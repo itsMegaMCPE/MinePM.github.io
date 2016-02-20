@@ -1,23 +1,41 @@
-<!DOCTYPE html>
+<html><head>
+		<title>xClientZ</title>
 
-  <html>
+		<script type="text/javascript" src="jQuery.js"></script>
+        <script type="text/javascript" src="GoogleQuery.js"></script>
 
-    <head>
+		<script>
+			var count = 0;
+			var resets = 0;
+			var enabled = true;
 
-      <title>MinePM Team</title>
+			$(function() {
+    			$('.first').click(function(e) {
+      				e.preventDefault();
+      				if(enabled){
+      					count++;
+      					console.log(count);
+     					document.getElementById('change').innerHTML = count + ": ";
+     				}
 
-    </head>
+     				if(count == 15){
+     					count = 0;
+     					resets++;
+     					document.getElementById('change').innerHTML = " Touch: ";
+     				}
 
-    <body>
+     				if(resets == 5){
+     					resets = 0;
+     					enabled = false;
+     					document.getElementById('change').innerHTML = " Not Allowed ";
+     				}
+      			});
+      		});
+		</script>
+	</head>
 
-
-     <h1>MinePM Site</h1>
-
-
-      <p>Team</p>
-
-      <p>Martin77Epic Owner</p>
-
-    </body>
-
-  </html>
+	<body>
+		<p style="color: red;" id="change"> Touch: </p>
+		<input type="submit" style="background-color: red;" class="first" value="Do!">
+	
+</body></html>
